@@ -41,7 +41,7 @@ public class PostOrderTests {
     @Test
     public void createOrderWithSigns() {
         Orders order = new Orders();
-        order.setFailOrder("~!@#$%^&*()?>,./<][ /*<!—«»♣☺♂",2,  2,"placed", true);
+        order.setFailOrder("~!@#$%^&*()?>,./<][ /*<!—«»♣☺♂", 2, 2, "placed", true);
 
         ValidatableResponse failedOrder = tryCreateOrder(order);
         failedOrder.assertThat()
