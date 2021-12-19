@@ -5,8 +5,6 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
-import java.util.List;
-
 import static io.restassured.RestAssured.given;
 
 
@@ -17,5 +15,18 @@ public class Helpers {
         RequestSpecBuilder builder = new RequestSpecBuilder();
         builder.addHeader("Content-Type", "application/json");
         return builder.build();
+    }
+
+    public static ValidatableResponse deleteOrder(int orderID) {
+        return given().spec(requestSpecification())
+                .pathParam("orderID", orderID)
+                .when().delete("/{orderID}").then().log().all();
+    }
+
+    public static ValidatableResponse tryCreateOrder(Orders order) {
+        return given()
+                .spec(requestSpecification())
+                .body(order.getFailOrder().toString())
+                .when().post().then().log().all();
     }
 }
