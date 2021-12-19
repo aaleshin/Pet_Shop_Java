@@ -5,8 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static objects.Helpers.requestSpecification;
-import static objects.Helpers.tryCreateOrder;
+import static objects.Helpers.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class PostOrderTests {
@@ -36,6 +35,8 @@ public class PostOrderTests {
                 .assertThat()
                 .statusCode(200)
                 .body("id", equalTo(orderID));
+
+        deleteOrder(orderID);
     }
 
     @Test
