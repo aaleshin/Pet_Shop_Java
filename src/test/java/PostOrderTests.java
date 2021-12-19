@@ -29,13 +29,6 @@ public class PostOrderTests {
                 .statusCode(200)
                 .extract().path("id");
 
-        given().spec(requestSpec)
-                .pathParam("orderID", orderID)
-                .when().get("/{orderID}").then()
-                .assertThat()
-                .statusCode(200)
-                .body("id", equalTo(orderID));
-
         deleteOrder(orderID);
     }
 

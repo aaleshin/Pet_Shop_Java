@@ -19,7 +19,7 @@ public class GetApiMethodTests {
     @Test
     public void GetOrder() {
         Orders orders = new Orders();
-        orders.setOrder(1, 1, 1, "placed", true);
+        orders.setOrder(2, 1, 1, "delivered", true);
         int orderID = given()
                 .spec(requestSpec)
                 .body(orders.getOrder().toString())

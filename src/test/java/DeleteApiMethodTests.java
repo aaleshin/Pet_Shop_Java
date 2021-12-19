@@ -17,7 +17,7 @@ public class DeleteApiMethodTests {
     @Test
     public void deleteOrder() {
         Orders orders = new Orders();
-        orders.setOrder(1, 1, 1, "placed", true);
+        orders.setOrder(3, 1, 1, "approved", true);
 
         int orderID = given()
                 .spec(requestSpec)
